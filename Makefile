@@ -9,5 +9,7 @@ all:
 
 clean:
 	rm -rf *~
+	git branch --delete $(shell cd .git/refs/heads/ && find * -type f -not -name 'master')
+	git push --all
 
 .PHONY: all clean
