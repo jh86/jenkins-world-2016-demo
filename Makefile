@@ -2,6 +2,7 @@ master:
 	git push origin $@
 
 %:
+	git branch --delete $@
 	git symbolic-ref refs/heads/$@ refs/heads/master
 	git push origin $@
 
