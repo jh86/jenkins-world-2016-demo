@@ -1,3 +1,6 @@
+%:
+	git symbolic-ref refs/heads/$@ refs/heads/master
+
 all:
 
 clean:
