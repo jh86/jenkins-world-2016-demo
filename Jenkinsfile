@@ -1,9 +1,8 @@
 node('master') {
     // Get me branch name
     def git_branch = env.BRANCH_NAME
+    println "branch: ${git_branch}: branch"
     if (git_branch != 'master') {
-	println "got here 1"
-    } else {
-	println "got here 2"
+	println "special case for non-master branch"
     }
 }
