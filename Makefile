@@ -7,9 +7,12 @@ master:
 
 all:
 
+LOCAL_BRANCHES := $(shell cd .git/refs/heads && find * -type f -not -name 'master')
+REMOTE_BRANCHES := $(shell cd .git/refs/remotes/origin && find * -type f -not -name 'master')
 clean:
 	rm -rf *~
-	git branch --delete $(shell cd .git/refs/heads/ && find * -type f -not -name 'master')
-	git push --all
+	-git branch --delete $(LOCAL_BRANCHES)
+	$(foreach branch, $(LOCAL_BRANCHES), git push origin :$(branch))
+	$(foreach branch, $(REMOTE_BRANCHES), $(shell git push origin :$(branch)))
 
 .PHONY: all clean
