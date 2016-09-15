@@ -1,5 +1,6 @@
 %:
 	git symbolic-ref refs/heads/$@ refs/heads/master
+	git push origin $@
 
 all:
 
