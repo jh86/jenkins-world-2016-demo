@@ -4,6 +4,7 @@ master:
 %:
 	-git branch --delete $@
 #&& git push origin :$@
+	git commit --allow-empty -m "Trigger build"
 	git symbolic-ref refs/heads/$@ refs/heads/master && git push origin HEAD:$@
 
 all:
